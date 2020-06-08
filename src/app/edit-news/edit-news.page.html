@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="orange">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editar notícia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="!!post">
+    <ion-list-header>Notícia criada em: {{ post.dateCreate | date:'dd/MM/yy HH:mm'}}</ion-list-header>
+    <ion-item>
+      <ion-label>Título*</ion-label>
+      <ion-input [(ngModel)]="post.title" (ngModelChange)="handleTitleChange()"></ion-input>
+    </ion-item>  
+    <ion-item>
+      <ion-label>Texto*</ion-label>
+      <ion-textarea rows="15" cols="20" [(ngModel)]="post.text" (ngModelChange)="handleTextChange()"></ion-textarea>
+    </ion-item>  
+    <ion-item *ngIf="!!authors">
+      <ion-label>Autor</ion-label>
+      <ion-select placeholder="selecione" [value]="post.author.authorId" interface="action-sheet" (ionChange)="handleAuthorChange($event)">
+        <ion-select-option *ngFor="let author of authors" [value]="author.authorId">{{author.name}}</ion-select-option>
+      </ion-select>
+    </ion-item>  
+  </ion-list>
+</ion-content>

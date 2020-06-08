@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="orange">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cadastrar notícia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>  
+    <ion-item>
+      <ion-label>Título*</ion-label>
+      <ion-input [(ngModel)]="post.title"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Texto*</ion-label>
+      <ion-textarea rows="15" cols="20" [(ngModel)]="post.text"></ion-textarea>
+    </ion-item>
+
+    <ion-item *ngIf="!!authors">
+      <ion-label>Autor</ion-label>
+      <ion-select placeholder="selecione" [(ngModel)]="post.authorId" interface="action-sheet">
+        <ion-select-option *ngFor="let author of authors" [value]="author.authorId">{{author.name}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="full" color="primary" (click)="submit()" [disabled]="!formValidation()">Salvar</ion-button>
+</ion-content>

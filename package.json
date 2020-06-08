@@ -1,8 +1,8 @@
 {
-  "name": "FlexNewsAppIonic",
+  "name": "flex-news-app-ionic",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Diogo Ramos de Carvalho",
+  "homepage": "https://www.flexbpo.com.br/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -50,5 +50,5 @@
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
   },
-  "description": "An Ionic project"
+  "description": "Projeto IONIC App para o processo seletivo"
 }
